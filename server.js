@@ -16,7 +16,12 @@ const mimeTypes = {
 
 const server = createServer(async (req, res) => {
   const pathname = req.url?.split("?")[0] ?? "/";
-  const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
+  const relativePath =
+    pathname === "/"
+      ? "index.html"
+      : pathname === "/favicon.ico"
+        ? "favicon.svg"
+        : pathname.slice(1);
   const filePath = normalize(join(root, relativePath));
 
   if (!filePath.startsWith(root)) {
