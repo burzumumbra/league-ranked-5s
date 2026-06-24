@@ -15,7 +15,9 @@ export const REGIONS = [
   { id: "tw", code: "TW", name: "Taiwan", tz: "Asia/Taipei", abbr: "CST" },
   { id: "vn", code: "VN", name: "Vietnam", tz: "Asia/Ho_Chi_Minh", abbr: "ICT" },
   { id: "tr", code: "TR", name: "Turkey", tz: "Europe/Istanbul", abbr: "TRT" },
-];
+] as const;
+
+export type Region = (typeof REGIONS)[number];
 
 export const START_HOUR = 20;
 export const END_HOUR = 1;
